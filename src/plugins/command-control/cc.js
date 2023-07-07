@@ -202,7 +202,7 @@ function isRethinkDns(hostname) {
 }
 
 function searchRedirect(b64userflag) {
-  const u = "https://rethinkdns.com/search";
+  const u = "/search";
   const q = "?s=" + b64userflag; // must be base64 (not base32 aka dot)
   return Response.redirect(u + q, 302);
 }
@@ -211,7 +211,7 @@ function searchRedirect(b64userflag) {
 // This happens when user clicks, say XYZ.max.rethinkdns.com or
 // max.rethinkdns.com/XYZ and it opens in a browser.
 function configRedirect(userFlag, origin, timestamp, highlight) {
-  const u = "https://rethinkdns.com/configure";
+  const u = "/configure";
   let q = "?tstamp=" + timestamp;
   q += !isRethinkDns(origin) ? "&v=ext&u=" + origin : "";
   q += highlight ? "&s=added" : "";
